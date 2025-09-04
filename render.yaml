@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: tradingview-to-telegram
+    env: python
+    buildCommand: ""
+    startCommand: gunicorn server:app --bind=0.0.0.0:$PORT
+    envVars:
+      - key: TELEGRAM_TOKEN
+        sync: false
+      - key: TELEGRAM_CHAT_ID
+        sync: false
